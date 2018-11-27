@@ -1,0 +1,20 @@
+/* -----------------------------------------
+   Custom.css - put your own changes here
+----------------------------------------- */
+.navbar-brand .logo {
+    width: 100%;
+    margin-top: 10px;
+}
+.navbar-brand .logo-sm {
+    width: 100%;
+    margin-top: 20px;
+}
+.toggle-sidebar a {
+    cursor: pointer;
+}
+.cursor {
+    cursor: pointer;
+}
+.no-border {
+    border: none;
+}
