@@ -23,7 +23,7 @@
 
                             <div class="layer-slick1 animated visible-false" data-appear="zoomIn" data-delay="1600">
                                 <a href="{{route('shop')}}" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
-                                    Shop Now
+                                    Cửa hàng
                                 </a>
                             </div>
                         </div>
@@ -57,7 +57,7 @@
 
                             <div class="block1-txt-child2 p-b-4 trans-05">
                                 <div class="block1-link stext-101 cl0 trans-09">
-                                    Shop Now
+                                    Cửa hàng
                                 </div>
                             </div>
                         </a>
@@ -73,18 +73,18 @@
     <div class="container">
         <div class="p-b-10">
             <h3 class="ltext-103 cl5">
-                Product Overview
+                Sản phẩm mới
             </h3>
         </div>
 
         <div class="flex-w flex-sb-m p-b-52">
             <div class="flex-w flex-l-m filter-tope-group m-tb-10">
                 <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1" data-filter="*">
-                    All Products
+                    Tất cả sản phẩm
                 </button>
 
                 @foreach($categories as $category)
-                    <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".{{$category->name}}">
+                    <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".category-{{$category->id}}">
                         {{$category->name}}
                     </button>
                 @endforeach
@@ -94,32 +94,32 @@
                 <div class="flex-c-m stext-106 cl6 size-105 bor4 pointer hov-btn3 trans-04 m-tb-4 js-show-search">
                     <i class="icon-search cl2 m-r-6 fs-15 trans-04 zmdi zmdi-search"></i>
                     <i class="icon-close-search cl2 m-r-6 fs-15 trans-04 zmdi zmdi-close dis-none"></i>
-                    Search
+                    Tìm kiếm
                 </div>
             </div>
 
-            <!-- Search product -->
             <div class="dis-none panel-search w-full p-t-10 p-b-15">
                 <div class="bor8 dis-flex p-l-15">
                     <button class="size-113 flex-c-m fs-16 cl2 hov-cl1 trans-04">
                         <i class="zmdi zmdi-search"></i>
                     </button>
 
-                    <input class="mtext-107 cl2 size-114 plh2 p-r-15" type="text" name="search-product" placeholder="Search">
+                    <input class="mtext-107 cl2 size-114 plh2 p-r-15" type="text"
+                        name="search-product" placeholder="Tìm kiếm">
                 </div>
             </div>
         </div>
 
         <div class="row isotope-grid">
             @foreach($products as $product)
-                <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item {{$product->category->name}}">
+                <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item category-{{$product->category_id}}">
                     <div class="block2">
                         <div class="block2-pic hov-img0">
                             <img src="{{asset('images/products/' . $product->images[0]->url)}}">
 
                             <a href="#" data-id="{{$product->id}}"
                                 class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal">
-                                Quick View
+                                Chi tiết
                             </a>
                         </div>
 
@@ -131,7 +131,7 @@
                                 </a>
 
                                 <span class="stext-105 cl3">
-                                    ${{$product->price}}
+                                    {{$product->price}} VNĐ
                                 </span>
                             </div>
                         </div>
@@ -140,18 +140,16 @@
             @endforeach
         </div>
 
-        <!-- Load more -->
         <div class="flex-c-m flex-w w-full p-t-45">
             <a href="{{route('shop')}}"
                 class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04">
-                Load More
+                Xem thêm
             </a>
         </div>
     </div>
 </section>
 
 @foreach($products as $product)
-    <!-- Modal1 -->
     <div class="wrap-modal1 js-modal{{$product->id}} p-t-60 p-b-20">
         <div class="overlay-modal1 js-hide-modal" data-id="{{$product->id}}"></div>
 
@@ -193,7 +191,7 @@
                             </h4>
 
                             <span class="mtext-106 cl2">
-                                ${{$product->price}}
+                                {{$product->price}} VNĐ
                             </span>
 
                             <p class="stext-102 cl3 p-t-23">
@@ -217,7 +215,7 @@
                                         <div class="size-204 respon6-next">
                                             <div class="rs1-select2 bor8 bg0">
                                                 <select class="js-select2" name="size">
-                                                    <option>Choose an option</option>
+                                                    <option>Vui lòng chọn Size</option>
                                                     @foreach($product->sizes as $size)
                                                         <option value="{{$size->id}}">{{$size->name}}</option>
                                                     @endforeach
@@ -229,13 +227,13 @@
 
                                     <div class="flex-w flex-r-m p-b-10">
                                         <div class="size-203 flex-c-m respon6">
-                                            Color
+                                            Màu
                                         </div>
 
                                         <div class="size-204 respon6-next">
                                             <div class="rs1-select2 bor8 bg0">
                                                 <select class="js-select2" name="color">
-                                                    <option>Choose an option</option>
+                                                    <option>Vui lòng chọn màu</option>
                                                     @foreach($product->colors as $color)
                                                         <option value="{{$color->id}}">{{$color->name}}</option>
                                                     @endforeach
@@ -261,7 +259,7 @@
                                             </div>
 
                                             <button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
-                                                Add to cart
+                                                Thêm vào giỏ
                                             </button>
                                         </div>
                                     </div>

@@ -7,11 +7,11 @@
         <div class="flex-w flex-sb-m p-b-52">
             <div class="flex-w flex-l-m filter-tope-group m-tb-10">
                 <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1" data-filter="*">
-                    All Products
+                    Tất cả sản phẩm
                 </button>
 
                 @foreach($categories as $category)
-                    <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".{{$category->name}}">
+                    <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".category-{{$category->id}}">
                         {{$category->name}}
                     </button>
                 @endforeach
@@ -21,7 +21,7 @@
                 <div class="flex-c-m stext-106 cl6 size-105 bor4 pointer hov-btn3 trans-04 m-tb-4 js-show-search">
                     <i class="icon-search cl2 m-r-6 fs-15 trans-04 zmdi zmdi-search"></i>
                     <i class="icon-close-search cl2 m-r-6 fs-15 trans-04 zmdi zmdi-close dis-none"></i>
-                    Search
+                    Tìm kiếm
                 </div>
             </div>
 
@@ -32,21 +32,22 @@
                         <i class="zmdi zmdi-search"></i>
                     </button>
 
-                    <input class="mtext-107 cl2 size-114 plh2 p-r-15" type="text" name="search-product" placeholder="Search">
+                    <input class="mtext-107 cl2 size-114 plh2 p-r-15" type="text"
+                        name="search-product" placeholder="Tìm kiếm">
                 </div>
             </div>
         </div>
 
         <div class="row isotope-grid">
             @foreach($products as $product)
-                <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item {{$product->category->name}}">
+                <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item category-{{$product->category_id}}">
                     <div class="block2">
                         <div class="block2-pic hov-img0">
                             <img src="{{asset('images/products/' . $product->images[0]->url)}}">
 
                             <a href="#" data-id="{{$product->id}}"
                                 class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal">
-                                Quick View
+                                Chi tiết
                             </a>
                         </div>
 
@@ -57,7 +58,7 @@
                                 </a>
 
                                 <span class="stext-105 cl3">
-                                    ${{$product->price}}
+                                    {{$product->price}} VNĐ
                                 </span>
                             </div>
                         </div>
@@ -111,7 +112,7 @@
                             </h4>
 
                             <span class="mtext-106 cl2">
-                                ${{$product->price}}
+                                {{$product->price}} VNĐ
                             </span>
 
                             <p class="stext-102 cl3 p-t-23">

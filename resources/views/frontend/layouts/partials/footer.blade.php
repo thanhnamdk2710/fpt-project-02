@@ -1,34 +1,33 @@
-<!-- Footer -->
 <footer class="bg3 p-t-75 p-b-32">
     <div class="container">
         <div class="row">
             <div class="col-sm-6 col-lg-3 p-b-50">
                 <h4 class="stext-301 cl0 p-b-30">
-                    Categories
+                    Danh mục sản phẩm
                 </h4>
 
                 <ul>
                     <li class="p-b-10">
-                        <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                            Women
+                        <a href="{{route('shop')}}" class="stext-107 cl7 hov-cl1 trans-04">
+                            Nữ giới
                         </a>
                     </li>
 
                     <li class="p-b-10">
-                        <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                            Men
+                        <a href="{{route('shop')}}" class="stext-107 cl7 hov-cl1 trans-04">
+                            Nam giới
                         </a>
                     </li>
 
                     <li class="p-b-10">
-                        <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                            Shoes
+                        <a href="{{route('shop')}}" class="stext-107 cl7 hov-cl1 trans-04">
+                            Đồng hồ
                         </a>
                     </li>
 
                     <li class="p-b-10">
-                        <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                            Watches
+                        <a href="{{route('shop')}}" class="stext-107 cl7 hov-cl1 trans-04">
+                            Phụ kiện
                         </a>
                     </li>
                 </ul>
@@ -36,31 +35,31 @@
 
             <div class="col-sm-6 col-lg-3 p-b-50">
                 <h4 class="stext-301 cl0 p-b-30">
-                    Help
+                    Trợ giúp
                 </h4>
 
                 <ul>
                     <li class="p-b-10">
                         <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                            Track Order
+                            Theo dõi đặt hàng
                         </a>
                     </li>
 
                     <li class="p-b-10">
                         <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                            Returns
+                            Trả hàng
                         </a>
                     </li>
 
                     <li class="p-b-10">
                         <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                            Shipping
+                            Giao hàng
                         </a>
                     </li>
 
                     <li class="p-b-10">
                         <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                            FAQs
+                            Phản hồi
                         </a>
                     </li>
                 </ul>
@@ -68,56 +67,41 @@
 
             <div class="col-sm-6 col-lg-3 p-b-50">
                 <h4 class="stext-301 cl0 p-b-30">
-                    GET IN TOUCH
+                    Liên lạc
                 </h4>
 
                 <p class="stext-107 cl7 size-201">
-                    Any questions? Let us know in store at 8th floor, 379 Hudson St, New York, NY 10018 or call us on (+1) 96 716 6879
+                    Bạn có câu hỏi gì không? Hãy cho chúng tôi biết tại cửa hàng ở số 137 Nguyễn thị Thập, Tp Đà Nẵng hoặc gọi cho chúng tôi theo số (+334) 366 133
                 </p>
-
-                <div class="p-t-27">
-                    <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
-                        <i class="fa fa-facebook"></i>
-                    </a>
-
-                    <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
-                        <i class="fa fa-instagram"></i>
-                    </a>
-
-                    <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
-                        <i class="fa fa-pinterest-p"></i>
-                    </a>
-                </div>
             </div>
 
             <div class="col-sm-6 col-lg-3 p-b-50">
                 <h4 class="stext-301 cl0 p-b-30">
-                    Newsletter
+                    Bản tin
                 </h4>
 
                 <form>
                     <div class="wrap-input1 w-full p-b-4">
-                        <input class="input1 bg-none plh1 stext-107 cl7" type="text" name="email" placeholder="email@example.com">
+                        <input class="input1 bg-none plh1 stext-107 cl7" type="text" name="email"
+                            placeholder="email@example.com">
                         <div class="focus-input1 trans-04"></div>
                     </div>
 
                     <div class="p-t-18">
                         <button class="flex-c-m stext-101 cl0 size-103 bg1 bor1 hov-btn2 p-lr-15 trans-04">
-                            Subscribe
+                            Theo dõi
                         </button>
                     </div>
                 </form>
             </div>
         </div>
 
-        <div class="p-t-40">
+        <div class="p-t-10">
             <p class="stext-107 cl6 txt-center">
-                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                 Copyright &copy;<script>document.write(new Date().getFullYear());</script>
-                All rights reserved | This template is made with
-                <i class="fa fa-heart-o" aria-hidden="true"></i> by
+                Tất cả các quyền | Mẫu này được tạo bởi
+                <i class="fa fa-heart-o" aria-hidden="true"></i>
                 <a href="https://github.com/thanhnamdk2710" target="_blank">NamDev</a>
-                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             </p>
         </div>
     </div>

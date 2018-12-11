@@ -4,12 +4,12 @@
 <div class="container">
     <div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
         <a href="{{route('home')}}" class="stext-109 cl8 hov-cl1 trans-04">
-            Home
+            Trang chủ
             <i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
         </a>
 
         <span class="stext-109 cl4">
-            Shoping Cart
+            Giỏ hàng
         </span>
     </div>
 </div>
@@ -20,18 +20,18 @@
         <div class="row">
             <div class="col-lg-12 col-xl-12 m-lr-auto m-b-50">
                 <h4 class="mtext-109 cl2 p-b-30">
-                    Current Cart
+                    Giỏ hàng hiện tại
                 </h4>
 
                 <div class="m-lr-0-xl">
                     <div class="wrap-table-shopping-cart">
                         <table class="table-shopping-cart">
                             <tr class="table_head">
-                                <th class="column-1">Product</th>
+                                <th class="column-1">Sản phẩm</th>
                                 <th class="column-2"></th>
-                                <th class="column-3">Price</th>
-                                <th class="column-4">Quantity</th>
-                                <th class="column-5">Total</th>
+                                <th class="column-3">Giá</th>
+                                <th class="column-4">Số lượng</th>
+                                <th class="column-5">Thành tiền</th>
                                 <th class="column-5"></th>
                             </tr>
 
@@ -50,7 +50,7 @@
                                         </form>
                                     </td>
                                     <td class="column-2">{{$item->name}}</td>
-                                    <td class="column-3">$ {{$item->price}}</td>
+                                    <td class="column-3">{{$item->price}} VNĐ</td>
                                     <form action="{{route('cart.update', $item->id)}}" method="post">
                                         @csrf
 
@@ -68,10 +68,10 @@
                                                 </div>
                                             </div>
                                         </td>
-                                        <td class="column-5">$ {{$item->price * $item->quantity}}</td>
+                                        <td class="column-5">{{$item->price * $item->quantity}} VNĐ</td>
                                         <td class="column-5">
                                             <button type="submit" class="flex-c-m stext-101 cl2 size-115 bg8 bor13 hov-btn3 p-lr-15 trans-04">
-                                                Update Cart
+                                                Cập nhật giỏ
                                             </button>
                                         </td>
                                     </form>
@@ -87,19 +87,19 @@
                     @csrf
 
                     <h4 class="mtext-109 cl2 p-b-30">
-                        Cart Totals
+                        Kiểm tra đặt hàng
                     </h4>
 
                     <div class="flex-w flex-t bor12 p-b-13">
                         <div class="size-208">
                             <span class="stext-110 cl2">
-                                Total:
+                                Tổng tiền:
                             </span>
                         </div>
 
                         <div class="size-209">
                             <span class="mtext-110 cl2">
-                                ${{Cart::session(Auth::user()->id)->getSubTotal()}}
+                                {{Cart::session(Auth::user()->id)->getSubTotal()}} VNĐ
                             </span>
                         </div>
                     </div>
@@ -107,7 +107,7 @@
                     <div class="flex-w flex-t bor12 p-t-15 p-b-30">
                         <div class="size-208 w-full-ssm">
                             <span class="stext-110 cl2">
-                                Customer Information:
+                                Thông tin khách hàng:
                             </span>
                         </div>
 
@@ -126,7 +126,7 @@
 
                             <div class="p-t-15">
                                 <span class="stext-112 cl8">
-                                    Customer Name
+                                    Tên khách hàng
                                 </span>
 
                                 <div class="rs1-select2 rs2-select2 bor8 bg0 m-b-12 m-t-9">
@@ -135,7 +135,7 @@
                                 </div>
 
                                 <span class="stext-112 cl8">
-                                    Phone
+                                    Điện thoại
                                 </span>
 
                                 <div class="rs1-select2 rs2-select2 bor8 bg0 m-b-12 m-t-9">
@@ -144,7 +144,7 @@
                                 </div>
 
                                 <span class="stext-112 cl8">
-                                    Address
+                                    Địa chỉ
                                 </span>
 
                                 <div class="rs1-select2 rs2-select2 bor8 bg0 m-b-12 m-t-9">
@@ -157,7 +157,7 @@
 
                     <button type="submit"
                         class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
-                        Proceed to Checkout
+                        Tiến hành kiểm tra
                     </button>
                 </form>
             </div>
@@ -172,31 +172,47 @@
         <div class="row">
             <div class="col-lg-12 col-xl-12 m-lr-auto m-b-50">
                 <h4 class="mtext-109 cl2 p-b-30">
-                    Order Product
+                    Sản phẩm đặt hàng
                 </h4>
 
                 <div class="m-lr-0-xl">
                     <div class="wrap-table-shopping-cart">
                         <table class="table-shopping-cart">
                             <tr class="table_head">
-                                <th class="column-1">#Order ID</th>
-                                <th class="column-2">Total</th>
-                                <th class="column-3">Order Date</th>
-                                <th class="column-3">Status</th>
+                                <th class="column-1">#Mã đơn hàng</th>
+                                <th class="column-3">Ngày đặt hàng</th>
+                                <th class="column-5">Tổng tiền</th>
+                                <th class="column-3">Trạng thái</th>
+                                <th class="column-3"></th>
                             </tr>
 
                             @foreach($orders as $order)
                                 <tr class="table_order">
                                     <td class="column-1">{{$order->id}}</td>
-                                    <td class="column-2">$ {{$order->total}}</td>
                                     <td class="column-3">{{$order->created_at}}</td>
+                                    <td class="column-5">{{$order->total}} VNĐ</td>
+
                                     @if($order->status == 1)
-                                        <td class="column-3 badge badge-danger">Order</td>
+                                        <td class="column-3 badge badge-info">Đặt hàng</td>
                                     @elseif($order->status == 2)
-                                        <td class="column-3 badge badge-warning">Shipping</td>
+                                        <td class="column-3 badge badge-warning">Giao hàng</td>
+                                    @elseif($order->status == 3)
+                                        <td class="column-3 badge badge-secondary">Đã huỷ</td>
                                     @else
-                                        <td class="column-3 badge badge-success">Done</td>
+                                        <td class="column-3 badge badge-success">Đã thành toán</td>
                                     @endif
+
+                                    <td class="column-3">
+                                        @if($order->status == 1)
+                                            <form action="{{route('orders.cancel', $order->id)}}"
+                                                    class="pull-left" method="post">
+                                                @csrf
+                                                <button type="submit" class="btn btn-danger sweet-4">
+                                                    <i class="fa fa-cancel mr10"></i>Huỷ đơn hàng
+                                                </button>
+                                            </form>
+                                        @endif
+                                    </td>
                                 </tr>
                             @endforeach
                         </table>
@@ -204,6 +220,12 @@
                 </div>
             </div>
         </div>
+    </div>
+</div>
+@else
+<div class="bg0 p-t-75">
+    <div class="container">
+        <div class="alert alert-danger">Giỏ hàng chưa có sản phẩm nào</div>
     </div>
 </div>
 @endif
