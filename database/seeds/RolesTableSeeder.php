@@ -28,7 +28,6 @@ class RolesTableSeeder extends Seeder
             'name' => 'Admin',
             'avatar' => '',
             'phone' => '034366133',
-            'birthday' => '27-10-1995',
             'address' => 'Da Nang'
         ]);
     }

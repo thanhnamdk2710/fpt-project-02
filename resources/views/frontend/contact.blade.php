@@ -4,7 +4,7 @@
 	<!-- Title page -->
 	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('{{asset('frontend/images/bg-01.jpg')}}');">
 		<h2 class="ltext-105 cl0 txt-center">
-			Contact
+			Liên hệ
 		</h2>
 	</section>
 
@@ -18,7 +18,7 @@
                         @csrf
 
 						<h4 class="mtext-105 cl2 txt-center p-b-30">
-							Send Us A Message
+							Gửi tin nhắn cho chúng tôi
                         </h4>
 
                         @if ($errors->any())
@@ -44,18 +44,21 @@
                         @endif
 
 						<div class="bor8 m-b-20 how-pos4-parent">
-							<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="email" placeholder="Your Email Address">
+                            <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="email"
+                                placeholder="Địa chỉ Email của bạn">
                             <div class="how-pos4 pointer-none">
                                 <i class="zmdi zmdi-email"></i>
                             </div>
 						</div>
 
 						<div class="bor8 m-b-30">
-							<textarea class="stext-111 cl2 plh3 size-120 p-lr-28 p-tb-25" name="content" placeholder="How Can We Help?"></textarea>
+                            <textarea class="stext-111 cl2 plh3 size-120 p-lr-28 p-tb-25"
+                            name="content" placeholder="Làm sao chúng tôi có thể giúp đỡ bạn?"></textarea>
 						</div>
 
-						<button class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" type="submit">
-							Submit
+                        <button class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer"
+                            type="submit">
+							Gửi
 						</button>
 					</form>
 				</div>
@@ -68,11 +71,11 @@
 
 						<div class="size-212 p-t-2">
 							<span class="mtext-110 cl2">
-								Address
+								Địa chỉ
 							</span>
 
 							<p class="stext-115 cl6 size-213 p-t-18">
-								137 Nguyen Thi Thap, Hoa Minh, Lien Chieu, Da Nang
+								137 Nguyễn Thị Thập, Hòa Minh, Liên Chiểu, Đà Nẵng
 							</p>
 						</div>
 					</div>
@@ -84,11 +87,11 @@
 
 						<div class="size-212 p-t-2">
 							<span class="mtext-110 cl2">
-								Lets Talk
+								Nói chuyện với chúng tôi
 							</span>
 
 							<p class="stext-115 cl1 size-213 p-t-18">
-								+34 366 133
+								+334 366 133
 							</p>
 						</div>
 					</div>
@@ -100,7 +103,7 @@
 
 						<div class="size-212 p-t-2">
 							<span class="mtext-110 cl2">
-								Sale Support
+								Hỗ trọ bán hàng
 							</span>
 
 							<p class="stext-115 cl1 size-213 p-t-18">
@@ -113,8 +116,6 @@
 		</div>
 	</section>
 
-
-	<!-- Map -->
 	<div class="map">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3833.806267423725!2d108.16818611423213!3d16.075539988877004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x314218e6e0975b07%3A0xcaff29dfb73f0ac!2zVHLGsOG7nW5nIMSR4bqhaSBo4buNYyBGUFQgxJDDoCBO4bq1bmc!5e0!3m2!1svi!2s!4v1542712512936"
             width="100%" height="390" frameborder="0" style="border:0" allowfullscreen></iframe>

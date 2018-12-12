@@ -7,12 +7,34 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\User;
 use Illuminate\Support\Facades\Hash;
+use App\Order;
+use App\Category;
+use App\Product;
+use App\Feedback;
 
 class DashboardController extends Controller
 {
     public function dashboard()
     {
-        return view('backend.dashboard');
+        $orders = Order::all();
+        $totalUser = User::where('role_id', 2)->count();
+        $useUser = User::where(['role_id' => 2, 'status' => 1])->count();
+        $totalCategory = Category::count();
+        $useCategory = Category::where('status', 1)->count();
+        $totalProduct = Product::count();
+        $useProduct = Product::where('status', 1)->count();
+        $feedback = Feedback::count();
+
+        return view('backend.dashboard', [
+            'orders' => $orders,
+            'totalCategory' => $totalCategory,
+            'useCategory' => $useCategory,
+            'totalProduct' => $totalProduct,
+            'useProduct' => $useProduct,
+            'totalUser' => $totalUser,
+            'useUser' => $useUser,
+            'countFeedback' => $feedback
+        ]);
     }
 
     public function profile(Request $request)

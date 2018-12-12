@@ -39,7 +39,7 @@ class CartController extends Controller
 
         Cart::session($userId)->add($id, $name, $price, $quantity, $customAttributes);
 
-        return redirect(route('cart.index'))->with('success', 'Order Product Successfully');
+        return redirect(route('cart.index'))->with('success', 'Thêm sản phẩm thành công');
     }
 
     public function update(Request $request, $id)
@@ -55,7 +55,7 @@ class CartController extends Controller
                 'value' => 1
             ]]);
 
-            return redirect(route('cart.index'))->with('success', 'Update Product Successfully');
+            return redirect(route('cart.index'))->with('success', 'Cập nhật giỏ hàng thành công');
         }
 
         Cart::session($userId)->update($id, ['quantity' => [
@@ -63,7 +63,7 @@ class CartController extends Controller
             'value' => $quantity
         ]]);
 
-        return redirect(route('cart.index'))->with('success', 'Update Product Successfully');
+        return redirect(route('cart.index'))->with('success', 'Cập nhật giỏ hàng thành công');
     }
 
     public function delete($id)
@@ -72,7 +72,17 @@ class CartController extends Controller
 
         Cart::session($userId)->remove($id);
 
-        return redirect(route('cart.index'))->with('success', 'Delete Product Successfully');
+        return redirect(route('cart.index'))->with('success', 'Xoá sản phẩm thành công');
+    }
+
+    public function cancel($id)
+    {
+        $order = Order::find($id);
+
+        $order->status = 3;
+        $order->save();
+
+        return redirect(route('cart.index'))->with('success', 'Huỷ đơn hàng thành công');
     }
 
     public function checkout(Request $request)
@@ -110,6 +120,6 @@ class CartController extends Controller
 
         Cart::session($userId)->clear();
 
-        return redirect(route('cart.index'))->with('success', 'Checkout Cart Successfully');
+        return redirect(route('cart.index'))->with('success', 'Đặt hàng thành công');
     }
 }

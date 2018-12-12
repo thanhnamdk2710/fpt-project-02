@@ -9,6 +9,7 @@ use App\Slider;
 use App\Product;
 use App\Feedback;
 use App\User;
+use App\Review;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
@@ -162,5 +163,20 @@ class HomeController extends Controller
         Auth::logout();
 
         return redirect()->route('login')->with('success', 'Logout Successfully');
+    }
+
+    public function review(Request $request, $id)
+    {
+        $request->validate([
+            'review' => 'required',
+        ]);
+
+        $review = new Review;
+        $review->user_id = Auth::user()->id;
+        $review->product_id = $id;
+        $review->review = $request->review;
+        $review->save();
+
+        return redirect()->back()->with('success', 'Review Successfully');
     }
 }

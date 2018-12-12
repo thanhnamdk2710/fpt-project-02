@@ -14,14 +14,13 @@
 
     @if(Auth::check())
         @if(Cart::session(Auth::user()->id)->getContent()->count() > 0)
-            <!-- Cart -->
             <div class="wrap-header-cart js-panel-cart">
                 <div class="s-full js-hide-cart"></div>
 
                 <div class="header-cart flex-col-l p-l-65 p-r-25">
                     <div class="header-cart-title flex-w flex-sb-m p-b-8">
                         <span class="mtext-103 cl2">
-                            Your Cart
+                            Giỏ hàng của bạn
                         </span>
 
                         <div class="fs-35 lh-10 cl2 p-lr-5 pointer hov-cl1 trans-04 js-hide-cart">
@@ -43,7 +42,7 @@
                                         </a>
 
                                         <span class="header-cart-item-info">
-                                            {{$item->quantity}} x $ {{$item->price}}
+                                            {{$item->quantity}} x {{$item->price}} VNĐ
                                         </span>
                                     </div>
                                 </li>
@@ -52,13 +51,13 @@
 
                         <div class="w-full">
                             <div class="header-cart-total w-full p-tb-40">
-                                Total: $ {{Cart::session(Auth::user()->id)->getSubTotal()}}
+                                Tổng tiền: $ {{Cart::session(Auth::user()->id)->getSubTotal()}}
                             </div>
 
                             <div class="header-cart-buttons flex-w w-full">
                                 <a href="{{route('cart.index')}}"
                                     class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
-                                    View Cart
+                                    Xem giỏ hàng
                                 </a>
                             </div>
                         </div>
@@ -74,7 +73,7 @@
             <div class="header-cart flex-col-l p-l-65 p-r-25">
                 <div class="header-cart-title flex-w flex-sb-m p-b-8">
                     <span class="mtext-103 cl2">
-                        Profile
+                        Thông tin cá nhân
                     </span>
 
                     <div class="fs-35 lh-10 cl2 p-lr-5 pointer hov-cl1 trans-04 js-hide-profile">
@@ -93,26 +92,26 @@
                         </div>
 
                         <li class="flex-w flex-t m-b-12 m-t-20">
-                            <strong class="m-r-10">Name:</strong> <span>{{Auth::user()->profile->name}}</span>
+                            <strong class="m-r-10">Tên:</strong> <span>{{Auth::user()->profile->name}}</span>
                         </li>
                         <li class="flex-w flex-t m-b-12">
                             <strong class="m-r-10">Email:</strong> <span>{{Auth::user()->email}}</span>
                         </li>
                         <li class="flex-w flex-t m-b-12">
-                            <strong class="m-r-10">Phone:</strong> <span>{{Auth::user()->profile->phone}}</span>
+                            <strong class="m-r-10">Điện thoại:</strong> <span>{{Auth::user()->profile->phone}}</span>
                         </li>
                         <li class="flex-w flex-t m-b-12">
-                            <strong class="m-r-10">Address:</strong> <span>{{Auth::user()->profile->address}}</span>
+                            <strong class="m-r-10">Địa chỉ:</strong> <span>{{Auth::user()->profile->address}}</span>
                         </li>
                     </ul>
 
                     <div class="w-full">
                         <div class="header-cart-buttons flex-c w-full">
                             <a href="{{route('logout')}}" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
-                                Logout
+                                Đăng xuất
                             </a>
                             <div class="js-show-setting js-hide-profile pointer flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
-                                Setting
+                                Cập nhật
                             </div>
                         </div>
                     </div>
@@ -127,7 +126,7 @@
             <div class="header-cart flex-col-l p-l-65 p-r-25">
                 <div class="header-cart-title flex-w flex-sb-m">
                     <span class="mtext-103 cl2">
-                        Update Profile
+                        Cập nhật thông tin
                     </span>
 
                     <div class="fs-35 lh-10 cl2 p-lr-5 pointer hov-cl1 trans-04 js-hide-setting">
@@ -179,7 +178,7 @@
                         <div class="w-full">
                             <div class="header-cart-buttons flex-c w-full">
                                 <button type="submit" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
-                                    Update
+                                    Cập nhật
                                 </button>
                             </div>
                         </div>

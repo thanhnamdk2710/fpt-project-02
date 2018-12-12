@@ -1,37 +1,32 @@
-<!-- Header -->
 <header class="{{Request::is('/') ? '' : 'header-v4' }}">
-    <!-- Header desktop -->
     <div class="container-menu-desktop">
         <div class="wrap-menu-desktop {{Request::is('/') ? '' : 'how-shadow1' }}">
             <nav class="limiter-menu-desktop container">
-                <!-- Logo desktop -->
                 <a href="{{route('home')}}" class="logo">
-                <img src="{{asset('images/logo.png')}}" alt="TN Fashion Shop Logo">
+                    <img src="{{asset('images/logo.png')}}" alt="TN Fashion Shop Logo">
                 </a>
 
-                <!-- Menu desktop -->
                 <div class="menu-desktop">
                     <ul class="main-menu">
                         <li class="{{Request::is('/') ? 'active-menu' : ''}}">
-                            <a href="{{route('home')}}">Home</a>
+                            <a href="{{route('home')}}">Trang chủ</a>
                         </li>
 
                         <li class="{{Request::is('shop') ? 'active-menu' : ''}}">
-                            <a href="{{route('shop')}}">Shop</a>
+                            <a href="{{route('shop')}}">Cửa hàng</a>
                         </li>
 
                         <li class="{{Request::is('about') ? 'active-menu' : ''}}">
-                            <a href="{{route('about')}}">About</a>
+                            <a href="{{route('about')}}">Giới thiệu</a>
                         </li>
 
                         <li class="{{Request::is('contact') ? 'active-menu' : ''}}">
-                            <a href="{{route('contact')}}">Contact</a>
+                            <a href="{{route('contact')}}">Liên hệ</a>
                         </li>
                     </ul>
                 </div>
 
-                <!-- Icon header -->
-                <a class="wrap-icon-header flex-w flex-r-m">
+                <div class="wrap-icon-header flex-w flex-r-m">
                     <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
                         <i class="zmdi zmdi-search"></i>
                     </div>
@@ -63,29 +58,42 @@
         </div>
     </div>
 
-    <!-- Header Mobile -->
     <div class="wrap-header-mobile">
-        <!-- Logo moblie -->
         <div class="logo-mobile">
-            <a href="index.html"><img src="{{asset('frontend/images/icons/logo-01.png')}}" alt="TN Fashion Shop Logo"></a>
+            <a href="{{route('home')}}" class="logo">
+                <img src="{{asset('images/icon.png')}}" alt="TN Fashion Shop Logo">
+            </a>
         </div>
 
-        <!-- Icon header -->
         <div class="wrap-icon-header flex-w flex-r-m m-r-15">
             <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
                 <i class="zmdi zmdi-search"></i>
             </div>
 
-            <div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti js-show-cart" data-notify="2">
-                <i class="zmdi zmdi-shopping-cart"></i>
-            </div>
+            @if(Auth::check())
+                @if(Cart::session(Auth::user()->id)->getContent()->count() > 0)
+                    <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart"
+                        data-notify="{{Cart::session(Auth::user()->id)->getContent()->count()}}">
+                        <i class="zmdi zmdi-shopping-cart"></i>
+                    </div>
+                @else
+                    <a href="{{route('cart.index')}}"
+                        class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11">
+                        <i class="zmdi zmdi-shopping-cart"></i>
+                    </a>
+                @endif
 
-            <a href="{{route('login')}}" class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11">
-                <i class="zmdi zmdi-accounts-alt"></i>
-            </a>
+                <a class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 {{Auth::check() ? 'js-show-profile' : ''}}">
+                    <i class="zmdi zmdi-accounts-alt"></i>
+                    <span class="fs-18">{{Auth::user()->profile->name}}</span>
+                </a>
+            @else
+                <a href="{{route('login')}}" class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11">
+                    <i class="zmdi zmdi-accounts-alt"></i>
+                </a>
+            @endif
         </div>
 
-        <!-- Button show menu -->
         <div class="btn-show-menu-mobile hamburger hamburger--squeeze">
             <span class="hamburger-box">
                 <span class="hamburger-inner"></span>
@@ -98,23 +106,19 @@
     <div class="menu-mobile">
         <ul class="main-menu-m">
             <li>
-                <a href="{{route('home')}}">Home</a>
+                <a href="{{route('home')}}">Trang chủ</a>
             </li>
 
             <li>
-                <a href="{{route('shop')}}">Shop</a>
+                <a href="{{route('shop')}}">Cửa hàng</a>
             </li>
 
             <li>
-                <a href="shoping-cart.html">Features</a>
+                <a href="{{route('about')}}">Giới thiệu</a>
             </li>
 
             <li>
-                <a href="{{route('about')}}">About</a>
-            </li>
-
-            <li>
-                <a href="{{route('contact')}}">Contact</a>
+                <a href="{{route('contact')}}">Liên lạc</a>
             </li>
         </ul>
     </div>
@@ -130,7 +134,7 @@
                 <button class="flex-c-m trans-04">
                     <i class="zmdi zmdi-search"></i>
                 </button>
-                <input class="plh3" type="text" name="search" placeholder="Search...">
+                <input class="plh3" type="text" name="search" placeholder="Tìm kiếm...">
             </form>
         </div>
     </div>

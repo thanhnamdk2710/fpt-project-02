@@ -9,7 +9,7 @@
                         @csrf
 
 						<h4 class="mtext-105 cl2 txt-center p-b-30">
-							Please Login Here
+							Đăng nhập tại đây
                         </h4>
 
                         @if ($errors->any())
@@ -46,7 +46,7 @@
 
 						<div class="bor8 m-b-20 how-pos4-parent">
                             <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="email"
-                                placeholder="Your Email Address">
+                                placeholder="Địa chỉ Email của bạn">
 							<div class="how-pos4 pointer-none">
                                 <i class="zmdi zmdi-email"></i>
                             </div>
@@ -54,17 +54,19 @@
 
 						<div class="bor8 m-b-20 how-pos4-parent">
                             <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="password" name="password"
-                                placeholder="Your Password">
+                                placeholder="Mật khẩu của bạn">
                                 <div class="how-pos4 pointer-none">
                                     <i class="zmdi zmdi-lock"></i>
                                 </div>
 						</div>
 
 						<button class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" type="submit">
-							Login
+							Đăng nhập
                         </button>
 
-                        <a href="{{route('register')}}" class="m-t-20 txt-center dis-block">Create Your Account!!!</a>
+                        <a href="{{route('register')}}" class="m-t-20 txt-center dis-block">
+                            Tạo tài khoản của bạn!!!
+                        </a>
 					</form>
 				</div>
 			</div>

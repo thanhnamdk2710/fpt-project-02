@@ -61,24 +61,10 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="{{route('orders.index')}}" class="{{Request::is('admin/orders*') ? 'active' : ''}}">
                             <i class="l-ecommerce-cart"></i>
                             <span class="txt">Orders</span>
                         </a>
-                        <ul class="sub">
-                            <li><a href="forms-basic.html"><span class="txt">Basic forms</span></a>
-                            </li>
-                            <li><a href="forms-advanced.html"><span class="txt">Advanced forms</span></a>
-                            </li>
-                            <li><a href="forms-layouts.html"><span class="txt">Form layouts.partials</span></a>
-                            </li>
-                            <li><a href="forms-wizard.html"><span class="txt">Form wizard</span></a>
-                            </li>
-                            <li><a href="forms-validation.html"><span class="txt">Form validation</span></a>
-                            </li>
-                            <li><a href="code-editor.html"><span class="txt">Code editor</span></a>
-                            </li>
-                        </ul>
                     </li>
                     <li>
                         <a href="{{route('feedback.index')}}" class="{{Request::is('admin/feedback*') ? 'active' : ''}}">
@@ -96,12 +82,6 @@
                         <a href="{{route('sliders.index')}}" class="{{Request::is('admin/sliders*') ? 'active' : ''}}">
                             <i class="l-basic-picture-multiple"></i>
                             <span class="txt">Sliders</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="portlets.html">
-                            <i class="fa fa-cogs"></i>
-                            <span class="txt">Setting</span>
                         </a>
                     </li>
                 </ul>

@@ -13,11 +13,13 @@ Route::post('/profile', 'Frontend\HomeController@profile')->name('profile');
 
 // Cart
 Route::group(['middleware' => 'auth'], function() {
+    Route::post('/review/{id}','Frontend\HomeController@review')->name('review');
     Route::get('/cart','Frontend\CartController@index')->name('cart.index');
     Route::post('/cart','Frontend\CartController@add')->name('cart.add');
     Route::post('/cart/update/{id}','Frontend\CartController@update')->name('cart.update');
     Route::delete('/cart/{id}','Frontend\CartController@delete')->name('cart.delete');
     Route::post('/checkout','Frontend\CartController@checkout')->name('checkout');
+    Route::post('cart/{id}/cancel', 'Frontend\CartController@cancel')->name('orders.cancel');
 });
 
 Route::match(['get', 'post'], 'admin/login', 'Backend\DashboardController@login')->name('admin.login');
@@ -27,6 +29,7 @@ Route::group(['middleware' => 'admin', 'prefix' => 'admin/'], function() {
     Route::get('logout', 'Backend\DashboardController@logout')->name('admin.logout');
     Route::match(['get', 'post'], 'profile', 'Backend\DashboardController@profile')->name('admin.profile');
     Route::resource('categories', 'Backend\CategoryController');
+    Route::resource('orders', 'Backend\OrderController');
     Route::resource('sliders', 'Backend\SliderController');
     Route::resource('products', 'Backend\ProductController');
     Route::resource('customers', 'Backend\CustomerController');
